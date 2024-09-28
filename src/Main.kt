@@ -1,33 +1,11 @@
 fun main() {
-    // Fill in the code.
-    val celciusToFahrenheits: (t:Double)->Double = {
-        (9.0/5.0 *it + 32)
-    }
-    val kelvinToCelsius: (Double) -> Double = {
-        it - 273.15
-    }
-    val fahrenheitsToKelvin: (t:Double)->Double = {
-        5.0/9.0 * (it - 32) + 273.15
-    }
-    printFinalTemperature(
-        initialMeasurement = 27.0,
-        initialUnit = "Celsius",
-        finalUnit = "Fahrenheit",
-        conversionFormula = celciusToFahrenheits
-    )
 
-    printFinalTemperature(
-        initialMeasurement = 350.0,
-        initialUnit = "Kelvin",
-        finalUnit = "Celsius",
-        conversionFormula = kelvinToCelsius
-    )
-    printFinalTemperature(
-        initialMeasurement = 10.0,
-        initialUnit = "Fahrenheit",
-        finalUnit = "Kelvin",
-        conversionFormula = fahrenheitsToKelvin
-    )
+    // quand une fonction est passée en derneier param on peut le metre sous cette forme avec les lambda
+    printFinalTemperature(initialMeasurement = 27.0, initialUnit = "Celsius", finalUnit = "Fahrenheit"){ ( 9.0/5.0 *it + 32) }
+
+    printFinalTemperature(initialMeasurement = 350.0,initialUnit = "Kelvin",finalUnit = "Celsius"){  it - 273.15 }
+
+    printFinalTemperature(initialMeasurement = 10.0, initialUnit = "Fahrenheit", finalUnit = "Kelvin"){ 5.0/9.0 * (it - 32) + 273.15 }
 }
 
 fun printFinalTemperature(
